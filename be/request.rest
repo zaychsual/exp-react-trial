@@ -1,0 +1,56 @@
+GET http://localhost:1613/users
+
+###
+GET http://localhost:1613/users/1
+
+###
+POST http://localhost:1613/users
+Content-Type: application/json
+
+{
+    "name": "Syifa Karim",
+    "email": "syifa@email.com",
+    "gender": "Female"
+}
+
+###
+PATCH http://localhost:1613/users/1
+Content-Type: application/json
+
+{
+    "name": "Aziz Zaind",
+    "email": "admin@email.com",
+    "gender": "Male"
+}
+
+###
+DELETE http://localhost:1613/users/2
+
+###
+GET http://localhost:1613/product
+
+###
+GET http://localhost:1613/product/1
+
+###
+POST http://localhost:1613/product
+Content-Type: application/json
+
+{
+    "name": "Syifa Karim",
+    "email": "syifa@email.com",
+    "gender": "Female"
+}
+
+###
+PATCH http://localhost:1613/product/1
+Content-Type: application/json
+
+{
+    "name": "Aziz Zaind",
+    "email": "admin@email.com",
+    "gender": "Male"
+}
+
+###
+DELETE http://localhost:1613/product/2
