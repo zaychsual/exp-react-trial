@@ -1,3 +1,4 @@
+# USER ROUTE
 GET http://localhost:1613/users
 
 ###
@@ -26,6 +27,8 @@ Content-Type: application/json
 ###
 DELETE http://localhost:1613/users/2
 
+
+# PRODUCT ROUTE
 ###
 GET http://localhost:1613/product
 
