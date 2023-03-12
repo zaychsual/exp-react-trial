@@ -65,22 +65,24 @@ export const updateProduct = async(req, res) => {
             }
         });
         if(!product) return res.status(404).json({msg: "No data found"});
+
         let fileName = "";
         if(req.files === null) {
-            console.log("masuk");
-            fileName = Product.image;
+            fileName = product.image;
         } else {
             const file = req.files.file;
             const filesize = file.data.length;
             const ext = path.extname(file.name);
             fileName = file.md5 + ext;
-            const url = `${req.protocol}://${req.get("host")}/img/${fileName}`;
             const allowedType = ['.png', '.jpeg', '.jpg'];
             // validation
             if(!allowedType.includes(ext.toLowerCase())) return res.status(422).json({msg: "Image Only"});
             if(filesize > 5000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
+            
             const filepath = `./public/img/${product.image}`;
             fs.unlinkSync(filepath);
+            
+
             file.mv(`./public/img/${fileName}`, (err) => {
                 if(err) return res.status(500).json({msg: err.message});
             });
