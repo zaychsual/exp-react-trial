@@ -1,6 +1,7 @@
 import Product from "../models/ProductModel.js";
 import path from "path";
 import fs from "fs";
+import { exit } from "process";
 
 export const getProducts = async(req, res) => {
     try {
@@ -66,6 +67,7 @@ export const updateProduct = async(req, res) => {
         if(!product) return res.status(404).json({msg: "No data found"});
         let fileName = "";
         if(req.files === null) {
+            console.log("masuk");
             fileName = Product.image;
         } else {
             const file = req.files.file;
@@ -85,7 +87,8 @@ export const updateProduct = async(req, res) => {
         }
         const name = req.body.title;
         const url = `${req.protocol}://${req.get("host")}/img/${fileName}`;
-
+        console.log(fileName);
+        exit;
         await Product.update({
             name: name,
             image: fileName,
